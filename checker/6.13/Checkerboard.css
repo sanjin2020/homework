@@ -1,0 +1,195 @@
+@charset "UTF-8";
+.box {
+  width: 600px;
+  height: 600px;
+  border: 1px solid #1c2327;
+  background: #f38f38;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto; }
+
+.heng {
+  width: 560px;
+  height: 1px;
+  background: #1c2327;
+  position: absolute;
+  left: 20px;
+  transform: translate(-300%, 0);
+  animation: throu 1s 1 ease-in forwards; }
+
+.shu {
+  width: 1px;
+  height: 560px;
+  background: #1c2327;
+  position: absolute;
+  top: 20px;
+  transform: translate(0, -300%);
+  animation: down 1s 1 ease-in forwards; }
+
+.heng:nth-of-type(1) {
+  top: 20px;
+  animation-delay: 100ms; }
+
+.shu:nth-of-type(1) {
+  left: 20px;
+  animation-delay: 100ms; }
+
+.heng:nth-of-type(2) {
+  top: 60px;
+  animation-delay: 200ms; }
+
+.shu:nth-of-type(2) {
+  left: 60px;
+  animation-delay: 200ms; }
+
+.heng:nth-of-type(3) {
+  top: 100px;
+  animation-delay: 300ms; }
+
+.shu:nth-of-type(3) {
+  left: 100px;
+  animation-delay: 300ms; }
+
+.heng:nth-of-type(4) {
+  top: 140px;
+  animation-delay: 400ms; }
+
+.shu:nth-of-type(4) {
+  left: 140px;
+  animation-delay: 400ms; }
+
+.heng:nth-of-type(5) {
+  top: 180px;
+  animation-delay: 500ms; }
+
+.shu:nth-of-type(5) {
+  left: 180px;
+  animation-delay: 500ms; }
+
+.heng:nth-of-type(6) {
+  top: 220px;
+  animation-delay: 600ms; }
+
+.shu:nth-of-type(6) {
+  left: 220px;
+  animation-delay: 600ms; }
+
+.heng:nth-of-type(7) {
+  top: 260px;
+  animation-delay: 700ms; }
+
+.shu:nth-of-type(7) {
+  left: 260px;
+  animation-delay: 700ms; }
+
+.heng:nth-of-type(8) {
+  top: 300px;
+  animation-delay: 800ms; }
+
+.shu:nth-of-type(8) {
+  left: 300px;
+  animation-delay: 800ms; }
+
+.heng:nth-of-type(9) {
+  top: 340px;
+  animation-delay: 900ms; }
+
+.shu:nth-of-type(9) {
+  left: 340px;
+  animation-delay: 900ms; }
+
+.heng:nth-of-type(10) {
+  top: 380px;
+  animation-delay: 1000ms; }
+
+.shu:nth-of-type(10) {
+  left: 380px;
+  animation-delay: 1000ms; }
+
+.heng:nth-of-type(11) {
+  top: 420px;
+  animation-delay: 1100ms; }
+
+.shu:nth-of-type(11) {
+  left: 420px;
+  animation-delay: 1100ms; }
+
+.heng:nth-of-type(12) {
+  top: 460px;
+  animation-delay: 1200ms; }
+
+.shu:nth-of-type(12) {
+  left: 460px;
+  animation-delay: 1200ms; }
+
+.heng:nth-of-type(13) {
+  top: 500px;
+  animation-delay: 1300ms; }
+
+.shu:nth-of-type(13) {
+  left: 500px;
+  animation-delay: 1300ms; }
+
+.heng:nth-of-type(14) {
+  top: 540px;
+  animation-delay: 1400ms; }
+
+.shu:nth-of-type(14) {
+  left: 540px;
+  animation-delay: 1400ms; }
+
+.heng:nth-of-type(15) {
+  top: 580px;
+  animation-delay: 1500ms; }
+
+.shu:nth-of-type(15) {
+  left: 580px;
+  animation-delay: 1500ms; }
+
+@keyframes throu {
+  from {
+    transform: translate(-300%, 0); }
+  to {
+    transform: translate(0, 0); } }
+
+@keyframes down {
+  from {
+    transform: translate(0, -300%); }
+  to {
+    transform: translate(0, 0); } }
+
+.Checkerboard {
+  height: 36px;
+  width: 36px;
+  margin: 2px;
+  border-radius: 50%;
+  float: left;
+  position: relative;
+  z-index: 999;
+  box-sizing: border-box; }
+
+.black {
+  background: black; }
+
+.white {
+  background: #eeeeee; }
+
+.box p {
+  color: #181d4b;
+  font-family: 幼圆;
+  font-weight: bold;
+  font-size: 50px;
+  height: 50px;
+  width: 400px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  opacity: 0; }
+
+/*start112*/

@@ -1,0 +1,50 @@
+$color:red;
+.box{
+  height: 80px;
+  width: 80px;
+  opacity: 0.7;
+  border: 2px $color solid;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  background: $color;
+}
+div{
+height: 800px;
+}
+/*计算*/
+$a:200px;
+.box{
+  width:$a+200*2;
+}
+/*继承*/
+.box{
+  width:200px;
+  height:200px;
+  background:red;
+  a{color:blue}
+}
+.footer{
+  @extend .box;
+  border:1px solid #999;
+}
+/*语句*/
+$type: monster;
+p {
+  @if $type == ocean {
+    color: blue;
+  } @else if $type == matador {
+    color: red;
+  } @else if $type == monster {
+    color: green;
+  } @else {
+    color: black;
+  }
+}
+/* 编译前 */
+@for $i from 1 through 3 {
+  .item-#{$i} { width: 2em * $i; }
+}

@@ -1,0 +1,45 @@
+@charset "UTF-8";
+.box, .footer {
+  height: 80px;
+  width: 80px;
+  opacity: 0.7;
+  border: 2px red solid;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  background: red; }
+
+div {
+  height: 800px; }
+
+/*计算*/
+.box, .footer {
+  width: 600px; }
+
+/*继承*/
+.box, .footer {
+  width: 200px;
+  height: 200px;
+  background: red; }
+  .box a, .footer a {
+    color: blue; }
+
+.footer {
+  border: 1px solid #999; }
+
+/*语句*/
+p {
+  color: green; }
+
+/* 编译前 */
+.item-1 {
+  width: 2em; }
+
+.item-2 {
+  width: 4em; }
+
+.item-3 {
+  width: 6em; }
