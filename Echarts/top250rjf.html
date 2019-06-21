@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script>
+    <script src="data.js"></script>
+</head>
+<body>
+<div id="main" style="width: 1200px;height:800px; margin:20px auto;"></div>
+<script>
+    var myChart = echarts.init(document.getElementById('main'));
+    let  category = [];
+    let series = []
+    let selected = {}
+    for(let i=0; i < categories.length; i++) {
+        category = categories[i]
+        let movies = data.filter(item => item[4].includes(category))
+        if(category == '全部') {
+            selected[category] = true
+        }else {
+            selected[category] = false
+        }
+
+        let obj = {
+            name: category,
+            data: category=='全部'?data: movies,
+            type: 'scatter',
+            symbolSize: function (data) {
+                console.log(data);
+                return Math.ceil(data[2]) / 10;
+            },
+            label: {
+                emphasis: {
+                    show: true,
+                    formatter: function (param) {
+                        return param.data[3];
+                    },
+                    position: 'top'
+                }
+            },
+        }
+        series.push(obj)
+        // console.log(series);
+    }
+
+    option = {
+        backgroundColor: new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [{
+            offset: 0,
+            color: '#f7f8fa'
+        }, {
+            offset: 1,
+            color: '#cdd0d5'
+        }]),
+        tooltip: {
+            trigger: 'item',
+            formatter: function(params) {
+                let data = params.data;
+                console.log(params.data)
+                return `评分:${data[1]}<br/>时长:${data[2]}<br/>剧名:${data[3]}<br/>类型:${data[4]}`
+            }
+        },
+
+        legend: {
+            type: 'scroll',
+            right: 10,
+
+            data: categories,
+            selected,
+            selectedMode:'single'
+        },
+        xAxis: {
+            name:'播放量',
+            splitLine: {
+                lineStyle: {
+                    type: 'dashed'
+                }
+            }
+        },
+        yAxis: {
+            name:'评分',
+            splitLine: {
+                lineStyle: {
+                    type: 'dashed'
+                }
+            },
+            scale: true
+        },
+        series
+
+    };
+    myChart.setOption(option);
+</script>
+</body>
+</html>

@@ -66,9 +66,7 @@ $(function(){
         }
         /*//////////////////游戏规则判定///////////////////////*/
         if(!first){
-            // console.log(first);
             first = _this;
-            // console.log(first);
         }else{
             if(first.attr('id') == _this.attr('id')){
                 first = null;
@@ -76,16 +74,11 @@ $(function(){
             }
             let number1 = first.data('number');
             let number2 = _this.data('number');
-            // console.log(first);
-            // console.log(_this);
             if(number1 + number2 >= 5){
                 let [,fy]=first.attr('id').split('_');
                 let leftt1=parseInt(first.css("left"))-40;
                 let [,_n]=_this.attr('id').split('_');
                 let leftt2=parseInt(_this.css("left"))-40;
-                console.log(leftt1, leftt2);
-                console.log(first.attr('id'));
-                console.log(_this.attr('id'));
                 first.animate({top:0,left:710,opacity:0},function () {
                     $(this).remove();
                 });

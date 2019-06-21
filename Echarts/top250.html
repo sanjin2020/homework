@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <script src="echarts.min.js"></script>
+    <script src="Jquery.js"></script>
+<!--    <script src="vintage.js"></script>-->
+    <script src="data.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #main{
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main"></div>
+</body>
+</html>
+<script>
+    let myCharts = echarts.init(document.getElementById('main'));
+    let selected = {};
+    let series = [];
+    categories.forEach(category=>{
+        let movies = data.filter(ele=>ele[4].includes(category));
+        if(category == '全部'){
+            selected[category] = true;
+        }else{
+            selected[category] = false;
+        }
+        let obj = {
+            name: category,
+            data: category == '全部' ? data : movies,
+            type: 'scatter',
+            // symbolSize: function (data) {
+            //     console.log(data);
+            //     return Math.ceil(data[2]) / 10;
+            // },
+            symbolSize: function (data) {
+                console.log(data);
+                return Math.ceil(data[2]) / 10;
+            },
+            label: {
+                emphasis: {
+                    show: true,
+                    formatter: function (param) {
+                        return param.data[3];
+                    },
+                    position: 'top',
+                }
+            }
+        };
+        series.push(obj);
+        console.log(series);
+    });
+    let  option = {
+        backgroundColor: new echarts.graphic.RadialGradient(0.3, 0.3, 0.8, [{
+            offset: 0,
+            color: '#f7f8fa'
+        }, {
+            offset: 1,
+            color: '#cdd0d5'
+        }]),
+        // title: {
+        //     text: 'top250'
+        // },
+        xAxis: {
+            splitLine: {
+                lineStyle: {
+                    type: 'dashed'
+                }
+            }
+        },
+        yAxis: {
+            splitLine: {
+                lineStyle: {
+                    type: 'dashed'
+                }
+            },
+            scale: true
+        },
+        legend: {
+            type:'scroll',
+            data: categories,
+            selected,
+            selectedMode:'single'
+        },
+        series,
+        tooltip:{trigger:'item',
+                formatter:function (params) {
+                let data = params.data;
+                return `名字:${data[3]}<br/>
+                        类型:${data[4]}<br/>
+                        评分:${data[1]}
+                        `}
+        }
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myCharts.setOption(option);
+</script>
+
+
+
+
+
+
+
+
+
+
+
